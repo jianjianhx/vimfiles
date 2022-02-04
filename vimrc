@@ -1,6 +1,3 @@
-" for windows
-set shellslash
-
 " utf-8 encoding by default
 set encoding=utf-8
 
