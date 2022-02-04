@@ -18,6 +18,25 @@ let g:tex_flavor = "latex"
 
 
 "------------------------------------------------------------
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+
+" Make sure you use single quotes
+
+Plug 'lervag/vimtex'
+
+" Initialize plugin system
+call plug#end()
+"------------------------------------------------------------
+
+
+"------------------------------------------------------------
 " URL: https://vim.wikia.com/wiki/Example_vimrc
 " Authors: https://vim.wikia.com/wiki/Vim_on_Libera_Chat
 " Description: A minimal, but feature rich, example .vimrc. If you are a
@@ -34,14 +53,6 @@ let g:tex_flavor = "latex"
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
-
-" Attempt to determine the type of a file based on its name and possibly its
-" contents. Use this to allow intelligent auto-indenting for each filetype,
-" and for plugins that are filetype specific.
-filetype plugin indent on
-
-" Enable syntax highlighting
-syntax on
 
 "------------------------------------------------------------
 " Must have options {{{1
