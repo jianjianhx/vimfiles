@@ -2,4 +2,4 @@
 set guioptions-=T
 
 " set the font and size
-set guifont=Hack\ NF:h12
+set guifont=Cascadia\ Mono:h12
