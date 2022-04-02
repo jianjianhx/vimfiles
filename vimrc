@@ -1,19 +1,3 @@
-" utf-8 encoding by default
-set encoding=utf-8
-
-" directory for undo files
-if has('persistent_undo')
-  set undodir=$HOME/vimfiles/undo
-  set undofile
-endif
-
-" colorscheme for retro effects
-colorscheme blue
-
-" for latex plugin
-let g:tex_flavor = "latex"
-
-
 "------------------------------------------------------------
 call plug#begin()
 " The default plugin directory will be as follows:
@@ -26,11 +10,75 @@ call plug#begin()
 
 " Make sure you use single quotes
 
+Plug 'tpope/vim-commentary'
 Plug 'lervag/vimtex'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/vim-easy-align'
+Plug 'neomake/neomake'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'brglng/vim-im-select'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 " Initialize plugin system
 call plug#end()
+
+
+"" Plugin Settings
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" vimtex
+let g:vimtex_compiler_latexmk = {
+  \ 'build_dir' : 'build',
+  \}
+
+" neomake
+" When writing a buffer (no delay).
+call neomake#configure#automake('w')
 "------------------------------------------------------------
+
+
+" utf-8 encoding by default
+set encoding=utf-8
+
+" directory for undo files
+if has('persistent_undo')
+  set undodir=$HOME/vimfiles/undo
+  set undofile
+endif
+
+" search options
+set incsearch
+
+" set special characters
+set listchars=eol:$
+
+" toggle highlight cursor
+nnoremap <F12> :set cul! cuc!<CR>
+inoremap <F12> <ESC>:set cul! cuc!<CR>gi
+
+" show line boundary at 80 characters
+set colorcolumn=80
+
+" highlight tabs the same color as statusline backgroungd
+match ColorColumn /\t/
+
+" statusline
+" reference: https://vim.fandom.com/wiki/Writing_a_valid_statusline
+set statusline=%f\ %m%r%h%w%y[%{&ff}]
+set statusline+=%=
+set statusline+=line:%l/%L\ col:%c\ \ \ %P
+
+" leader key
+let mapleader=" "
+let maplocalleader=" "
+
+" colorscheme
+set termguicolors
+colorscheme onehalfdark
 
 
 "------------------------------------------------------------
@@ -90,7 +138,7 @@ set hlsearch
 " Modelines have historically been a source of security vulnerabilities. As
 " such, it may be a good idea to disable them and use the securemodelines
 " script, <http://www.vim.org/scripts/script.php?script_id=1876>.
-" set nomodeline
+set nomodeline
 
 
 "------------------------------------------------------------
@@ -111,6 +159,7 @@ set backspace=indent,eol,start
 " When opening a new line and no filetype-specific indenting is enabled, keep
 " the same indent as the line you're currently on. Useful for READMEs, etc.
 set autoindent
+set smartindent
 
 " Stop certain movements from always going to the first character of a line.
 " While this behaviour deviates from that of Vi, it does what most users
@@ -123,10 +172,6 @@ set ruler
 
 " Always display the status line, even if only one window is displayed
 set laststatus=2
-
-" Instead of failing a command because of unsaved changes, instead raise a
-" dialogue asking if you wish to save changed files.
-set confirm
 
 " Use visual bell instead of beeping when doing something wrong
 set visualbell
@@ -163,9 +208,9 @@ set softtabstop=2
 set expandtab
 
 " Indentation settings for using hard tabs for indent. Display tabs as
-" two characters wide.
-"set shiftwidth=2
-"set tabstop=2
+" four characters wide.
+"set shiftwidth=4
+set tabstop=4
 
 
 "------------------------------------------------------------
@@ -179,6 +224,6 @@ map Y y$
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <C-L> :nohlsearch<CR><C-L>
 
 "------------------------------------------------------------
