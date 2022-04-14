@@ -13,7 +13,7 @@ call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'joshdick/onedark.vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'tpope/vim-commentary'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-surround'
@@ -87,6 +87,7 @@ match ColorColumn /\t/
 " statusline
 " reference: https://vim.fandom.com/wiki/Writing_a_valid_statusline
 set statusline=%f\ %m%r%h%w%y[%{&ff}]
+set statusline+=%{FugitiveStatusline()}
 set statusline+=%=
 set statusline+=line:%l/%L\ col:%c\ \ \ %P
 
@@ -96,7 +97,7 @@ let maplocalleader=" "
 
 " colorscheme
 set termguicolors
-colorscheme onedark
+colorscheme onehalfdark
 
 " split like modern editor
 set splitright

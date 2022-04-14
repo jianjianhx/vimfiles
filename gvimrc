@@ -5,4 +5,4 @@ set guioptions-=T
 set guifont=Hack\ NF:h12
 
 " set window size
-set lines=25 columns=90
+set lines=30 columns=100
