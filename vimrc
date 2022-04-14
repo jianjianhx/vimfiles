@@ -10,14 +10,20 @@ call plug#begin()
 
 " Make sure you use single quotes
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-commentary'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/vim-easy-align'
-Plug 'neomake/neomake'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'brglng/vim-im-select'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " Initialize plugin system
 call plug#end()
@@ -35,9 +41,20 @@ let g:vimtex_compiler_latexmk = {
   \ 'build_dir' : 'build',
   \}
 
-" neomake
-" When writing a buffer (no delay).
-call neomake#configure#automake('w')
+" asyncomplete
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+
+" vim-lsp
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_highlights_insert_mode_enabled = 0
+let g:lsp_diagnostics_signs_insert_mode_enabled = 0
+
+" vim-lsp-settings
+let g:lsp_settings_enable_suggestions = 0
+
 "------------------------------------------------------------
 
 
@@ -78,7 +95,11 @@ let maplocalleader=" "
 
 " colorscheme
 set termguicolors
-colorscheme onehalfdark
+colorscheme onedark
+
+" split like modern editor
+set splitright
+set splitbelow
 
 
 "------------------------------------------------------------
