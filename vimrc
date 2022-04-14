@@ -10,6 +10,7 @@ call plug#begin()
 
 " Make sure you use single quotes
 
+Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'joshdick/onedark.vim'
