@@ -11,9 +11,9 @@ call plug#begin()
 " Make sure you use single quotes
 
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-commentary'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-surround'
@@ -97,7 +97,7 @@ let maplocalleader=" "
 
 " colorscheme
 set termguicolors
-colorscheme onehalfdark
+colorscheme onedark
 
 " split like modern editor
 set splitright
