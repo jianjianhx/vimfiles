@@ -51,9 +51,7 @@ imap <c-space> <Plug>(asyncomplete_force_refresh)
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_highlights_insert_mode_enabled = 0
 let g:lsp_diagnostics_signs_insert_mode_enabled = 0
-if executable('lua')
-  let g:lsp_use_lua = 1
-endif
+let g:lsp_use_lua = 1
 " language servers
 if executable('typescript-language-server')
     au User lsp_setup call lsp#register_server({
