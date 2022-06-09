@@ -170,6 +170,10 @@ colorscheme onedark
 set splitright
 set splitbelow
 
+" remap j and k depending on count
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+
 
 "------------------------------------------------------------
 " URL: https://vim.wikia.com/wiki/Example_vimrc
