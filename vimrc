@@ -10,6 +10,7 @@ call plug#begin()
 
 " Make sure you use single quotes
 
+Plug 'unblevable/quick-scope'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-repeat'
