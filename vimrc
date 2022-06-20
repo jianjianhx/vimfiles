@@ -10,6 +10,7 @@ call plug#begin()
 
 " Make sure you use single quotes
 
+Plug 'takac/vim-hardtime'
 Plug 'unblevable/quick-scope'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
@@ -123,6 +124,13 @@ augroup lsp_install
     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
+
+" vim-hardtime
+let g:hardtime_default_on = 1
+let g:hardtime_showmsg = 1
+let g:hardtime_ignore_quickfix = 1
+let g:hardtime_ignore_different_key = 1
+let g:hardtime_maxcount = 2
 
 "------------------------------------------------------------
 
