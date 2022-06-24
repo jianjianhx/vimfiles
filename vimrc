@@ -10,6 +10,7 @@ call plug#begin()
 
 " Make sure you use single quotes
 
+Plug 'vimwiki/vimwiki'
 Plug 'takac/vim-hardtime'
 Plug 'unblevable/quick-scope'
 Plug 'alvan/vim-closetag'
@@ -104,8 +105,6 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> gs <plug>(lsp-document-symbol-search)
     nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
     nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
     nmap <buffer> <leader>rn <plug>(lsp-rename)
     nmap <buffer> [g <plug>(lsp-previous-diagnostic)
     nmap <buffer> ]g <plug>(lsp-next-diagnostic)
@@ -132,6 +131,10 @@ let g:hardtime_ignore_quickfix = 1
 let g:hardtime_ignore_different_key = 1
 let g:hardtime_maxcount = 2
 
+" vimwiki
+let g:vimwiki_list = [{'path': '~/.vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
 "------------------------------------------------------------
 
 
@@ -151,8 +154,8 @@ set incsearch
 set listchars=eol:$
 
 " toggle highlight cursor
-nnoremap <F12> :set cul! cuc!<CR>
-inoremap <F12> <ESC>:set cul! cuc!<CR>gi
+nnoremap <F12> :set cul! cuc! hls!<CR>
+inoremap <F12> <ESC>:set cul! cuc! hls!<CR>gi
 
 " show line boundary at 80 characters
 set colorcolumn=80
@@ -236,7 +239,7 @@ set showcmd
 
 " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 " mapping of <C-L> below)
-set hlsearch
+"set hlsearch
 
 " Modelines have historically been a source of security vulnerabilities. As
 " such, it may be a good idea to disable them and use the securemodelines
