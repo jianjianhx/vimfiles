@@ -10,6 +10,7 @@ call plug#begin()
 
 " Make sure you use single quotes
 
+Plug 'mhinz/vim-startify'
 Plug 'vimwiki/vimwiki'
 Plug 'takac/vim-hardtime'
 Plug 'unblevable/quick-scope'
@@ -137,6 +138,9 @@ let g:vimwiki_list = [{'path': '~/.vimwiki/',
 
 "------------------------------------------------------------
 
+" undo CTRL-W and CTRL-U in insert mode
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
 
 " utf-8 encoding by default
 set encoding=utf-8
